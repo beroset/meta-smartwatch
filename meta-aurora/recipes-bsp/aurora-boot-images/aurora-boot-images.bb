@@ -38,12 +38,14 @@ COMPATIBLE_MACHINE = "aurora"
 #  - initramfs-android-image: init_boot.img ramdisk content (cpio.gz).
 #  - mkbootimg-tools-native: provides ${STAGING_BINDIR_NATIVE}/mkbootimg
 #  - dtc-native: provides ${STAGING_BINDIR_NATIVE}/fdtput
+#  - lz4-native: provides lz4, used to compress the vendor_kernel_boot ramdisk
 DEPENDS = "\
     virtual/kernel \
     linux-aurora-modules \
     initramfs-android-image \
     mkbootimg-tools-native \
     dtc-native \
+    lz4-native \
     clang-native \
 "
 do_compile[depends] += "\
