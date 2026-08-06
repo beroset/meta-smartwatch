@@ -14,6 +14,7 @@ SRC_URI = "git://gitlab.com/ubports/porting/community-ports/android13/google-eos
            file://sw5100.fragment \
            file://cmd-mod-file-func.patch \
            file://cc-o-c-respfile.patch \
+           file://modfinal-cc-o-c-respfile.patch \
            file://eud-secure-fail-nonfatal.patch \
            file://rtc-pm8xxx-read-only.patch \
            file://0001-video-fbdev-add-qcom-continuous-splash-framebuffer.patch"
