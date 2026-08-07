@@ -8,6 +8,8 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 COMPATIBLE_MACHINE = "sparrow"
 
+KCONFIG_MODE = "alldefconfig"
+
 DEPENDS += "rsync-native"
 
 SRC_URI = "git://github.com/z3ntu/linux;branch=qcom-msm8226-6.0.y-dsi;protocol=https \
