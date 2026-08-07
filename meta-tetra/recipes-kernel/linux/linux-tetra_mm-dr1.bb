@@ -29,6 +29,8 @@ SRC_URI = "git://android.googlesource.com/kernel/bcm;branch=android-bcm-tetra-3.
     file://0013-ARM-wire-up-getrandom-syscall.patch \
     file://0014-ARM-8933-1-replace-Sun-Solaris-style-flag-on-section.patch \
     file://0015-vfs-allow-umount-to-handle-mountpoints-without-reval.patch \
+    file://0016-backports-Drop-the-trailing-slash-from-BACKPORT_DIR.patch \
+    file://0017-backports-Anchor-the-include-paths-to-srctree.patch \
 "
 SRCREV = "0de8b342797a4074625055e77d37d5367d8ff285"
 LINUX_VERSION ?= "3.10.17"

@@ -31,6 +31,8 @@ SRC_URI = "git://github.com/OpenWatchProject/android_kernel_mediatek_mt6580;prot
     file://0014-ARM-8933-1-replace-Sun-Solaris-style-flag-on-section.patch \
     file://0015-Don-t-make-int-to-pointer-cast-warning-fail-compilat.patch \
     file://0016-make-Don-t-fail-on-pointer-int-return-issues.patch \
+    file://0017-backports-Drop-the-trailing-slash-from-BACKPORT_DIR.patch \
+    file://0018-backports-Anchor-the-include-paths-to-srctree.patch \
     "
 SRC_URI:append:inharmony = "file://inharmonyconfig"
 
