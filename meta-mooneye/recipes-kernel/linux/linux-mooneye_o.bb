@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -23,9 +23,10 @@ SRC_URI = "git://android.googlesource.com/kernel/mediatek;branch=android-mediate
            file://img_info \
            "
 SRCREV = "faeb8c03bca6c09f8817f4d509e0280b53af8b99"
-LINUX_VERSION ?= "4.4"
-PV = "${LINUX_VERSION}+oreo"
-B = "${S}"
+LINUX_VERSION ?= "4.4.126"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

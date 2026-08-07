@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -23,9 +23,10 @@ SRC_URI = "git://github.com/fossil-engineering/kernel-msm-fossil-cw;branch=fossi
            "
 
 SRCREV = "c0b4c201f2d5a641defe19958a9b4c16f40d866b"
-LINUX_VERSION ?= "4.14"
-PV = "${LINUX_VERSION}+pie"
-B = "${S}"
+LINUX_VERSION ?= "4.14.206"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

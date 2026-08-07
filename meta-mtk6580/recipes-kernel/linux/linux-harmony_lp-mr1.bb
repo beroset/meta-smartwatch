@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 
 SECTION = "kernel"
 SUMMARY = "Android kernel for harmony"
@@ -30,9 +30,10 @@ SRC_URI = "git://github.com/OpenWatchProject/android_kernel_mediatek_mt6580;prot
 SRC_URI:append:inharmony = "file://inharmonyconfig"
 
 SRCREV = "b1ebbe66774b96f03fb440860d328a119b7f9a6b"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+lollipop"
-B = "${S}"
+LINUX_VERSION ?= "3.10.72"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

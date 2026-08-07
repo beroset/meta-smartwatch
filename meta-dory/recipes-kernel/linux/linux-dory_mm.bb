@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -24,9 +24,10 @@ SRC_URI = "git://android.googlesource.com/kernel/msm;branch=android-msm-dory-3.1
     file://0011-vfs-allow-umount-to-handle-mountpoints-without-reval.patch \
 "
 SRCREV = "6924014484d3406e3d2da384efc20e40e8a5ae80"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.40"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig
