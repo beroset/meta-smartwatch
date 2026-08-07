@@ -15,6 +15,7 @@ LINUX_VERSION ?= "next.0"
 KERNEL_VERSION_SANITY_SKIP = "1"
 
 PV = "${LINUX_VERSION}"
+S = "${UNPACKDIR}/${BP}"
 B = "${S}"
 
 # Just do it by hand, to be 1000% sure the right config is used here.

@@ -21,7 +21,7 @@ SRCREV = "063840c5aae117bf0faac8b34fba0e37c9f619f8"
 require linux-aurora-version.inc
 LINUX_VERSION = "${AURORA_KERNEL_VERSION}"
 PV = "${AURORA_KERNEL_VERSION}+git${SRCPV}"
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BP}"
 # Out-of-tree build (B != S). Qualcomm's vendor kernel relies on it:
 # scripts/Makefile.lib only adds `-I $(srctree)/$(src)` when
 # `building_out_of_srctree` (i.e. O= separate dir) — drivers like WALT
