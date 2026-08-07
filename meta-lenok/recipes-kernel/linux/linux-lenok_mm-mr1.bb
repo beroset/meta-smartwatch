@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -24,9 +24,10 @@ SRC_URI = "git://android.googlesource.com/kernel/msm;branch=android-msm-lenok-3.
            file://img_info \
            "
 SRCREV = "2e918211eabb2843d87ac3c02baf5b03d84790f7"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.40"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

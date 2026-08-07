@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -31,9 +31,10 @@ SRC_URI = "git://android.googlesource.com/kernel/bcm;branch=android-bcm-tetra-3.
     file://0015-vfs-allow-umount-to-handle-mountpoints-without-reval.patch \
 "
 SRCREV = "0de8b342797a4074625055e77d37d5367d8ff285"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.17"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig
@@ -45,6 +46,9 @@ do_configure:prepend() {
 
 do_install:append() {
     rm -rf ${D}/usr/src/usr/
+
+    # The ..install.cmd contains references to TMPDIR
+    find ${D}/usr/src/ -name ..install.cmd | xargs rm -f
 }
 
 MKBOOTIMG_ARGS = "--base 0x82000000"

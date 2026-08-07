@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -27,9 +27,14 @@ SRC_URI = " git://android.googlesource.com/kernel/msm;branch=android-msm-smelt-3
 "
 
 SRCREV = "49608c8bfc75360f7ac54f539ce326b90034bc9d"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.40"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
+
+# The vendor tree carries EXTRAVERSION = -android@gpe, which the kernel
+# version sanity check demands in PV - but "@" cannot be used there.
+KERNEL_VERSION_SANITY_SKIP = "1"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

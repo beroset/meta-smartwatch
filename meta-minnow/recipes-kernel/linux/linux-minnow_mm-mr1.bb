@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -29,9 +29,10 @@ SRC_URI = " git://android.googlesource.com/kernel/omap;branch=android-omap-minno
 "
 
 SRCREV = "f651c7734b8d1ca6f2e39764eda8f413831bcf81"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.0"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig

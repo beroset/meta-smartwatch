@@ -1,4 +1,4 @@
-require recipes-kernel/linux/linux.inc
+require recipes-kernel/linux/linux-yocto.inc
 inherit gettext
 
 SECTION = "kernel"
@@ -17,9 +17,10 @@ SRC_URI = "git://android.googlesource.com/kernel/msm;branch=android-msm-nemo-3.1
     file://defconfig \
     file://img_info "
 SRCREV = "504f3357f3ef296bf5ccbfe05df2025fa41eb354"
-LINUX_VERSION ?= "3.10"
-PV = "${LINUX_VERSION}+marshmallow"
-B = "${S}"
+LINUX_VERSION ?= "3.10.40"
+LINUX_VERSION_EXTENSION = ""
+PE = "1"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig
