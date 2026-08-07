@@ -103,10 +103,10 @@ EXTRA_OEMAKE:append = " KCFLAGS='-Wno-error -Wno-implicit-function-declaration -
 
 # do_package debug-split/strip uses recipe (not KERNEL_) binutils; the armv7
 # defaults choke on the aarch64 vmlinux/modules.
-OBJCOPY = "${LLVM_BIN}/llvm-objcopy"
-STRIP = "${LLVM_BIN}/llvm-strip"
-NM = "${LLVM_BIN}/llvm-nm"
-AR = "${LLVM_BIN}/llvm-ar"
+OBJCOPY:class-target = "${LLVM_BIN}/llvm-objcopy"
+STRIP:class-target = "${LLVM_BIN}/llvm-strip"
+NM:class-target = "${LLVM_BIN}/llvm-nm"
+AR:class-target = "${LLVM_BIN}/llvm-ar"
 
 # Bootloader supplies the DTB; boot.img is kernel-only (kernel has a built-in
 # CONFIG_CMDLINE). Emit only Image; repack off-line into the UBPorts boot.img

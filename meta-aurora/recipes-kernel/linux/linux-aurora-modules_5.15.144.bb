@@ -184,8 +184,8 @@ KMOD_MAKE = "make -C ${KDIR} O=${KOUT} ARCH=arm64 LLVM=1 LLVM_IAS=1 \
 
 # do_package debug-split/strip uses recipe binutils; machine is armv7 →
 # defaults choke on the aarch64 .ko. Use clang/llvm-* + don't strip.
-OBJCOPY = "${LLVM_BIN}/llvm-objcopy"
-STRIP = "${LLVM_BIN}/llvm-strip"
+OBJCOPY:class-target = "${LLVM_BIN}/llvm-objcopy"
+STRIP:class-target = "${LLVM_BIN}/llvm-strip"
 INHIBIT_SYSROOT_STRIP = "1"
 
 do_configure[noexec] = "1"
