@@ -8,6 +8,11 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 COMPATIBLE_MACHINE = "bass"
 
+EXTRA_OEMAKE:append = " \
+    KCFLAGS+=' -std=gnu17' \
+    HOSTCFLAGS+=' -std=gnu17' \
+"
+
 SRC_URI = "git://android.googlesource.com/kernel/msm;branch=android-msm-bass-3.10-lollipop-mr1-wear-release;protocol=https \
     file://0001-scripts-dtc-Remove-redundant-YYLOC-global-declaratio.patch \
     file://0002-static-inline-in-ARM-ftrace.h.patch;striplevel=1 \
