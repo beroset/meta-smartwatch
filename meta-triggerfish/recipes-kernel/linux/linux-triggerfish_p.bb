@@ -8,6 +8,8 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 COMPATIBLE_MACHINE = "triggerfish"
 
+KCONFIG_MODE = "alldefconfig"
+
 # Use an older version of gcc (gcc >= 9 doesn't boot.)
 inherit kernel-gcc8
 
