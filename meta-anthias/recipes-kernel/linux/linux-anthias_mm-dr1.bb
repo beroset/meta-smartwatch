@@ -33,6 +33,12 @@ LINUX_VERSION_EXTENSION = ""
 PV = "${LINUX_VERSION}+marshmallow"
 B = "${S}"
 
+# symbol_why.py cannot analyse this vendor tree: kconfiglib chokes on
+# drivers/media/usb/stk1160/Kconfig:20 ("couldn't parse '.'").
+do_kernel_configcheck() {
+    :
+}
+
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig
 }

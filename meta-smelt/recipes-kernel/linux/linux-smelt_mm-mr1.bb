@@ -36,6 +36,12 @@ PV = "${LINUX_VERSION}+git${SRCPV}"
 # version sanity check demands in PV - but "@" cannot be used there.
 KERNEL_VERSION_SANITY_SKIP = "1"
 
+# symbol_why.py cannot analyse this vendor tree: kconfiglib chokes on
+# drivers/media/usb/stk1160/Kconfig:20 ("couldn't parse '.'").
+do_kernel_configcheck() {
+    :
+}
+
 do_configure:prepend() {
     install -m 644 -D ${UNPACKDIR}/defconfig ${WORKDIR}/defconfig
 }
