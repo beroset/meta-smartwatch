@@ -77,7 +77,7 @@ do_configure:prepend() {
 # STAGING_BINDIR_NATIVE; aarch64 host -> aarch64 kernel via clang --target,
 # with LLVM=1 LLVM_IAS=1 so the GNU CROSS_COMPILE is vestigial (no
 # gcc/binutils-cross needed).
-DEPENDS += "clang-native rsync-native"
+DEPENDS += "clang-native lld-native rsync-native"
 LLVM_BIN = "${STAGING_BINDIR_NATIVE}"
 PATH:prepend = "${STAGING_BINDIR_NATIVE}:"
 KERNEL_CC = "${LLVM_BIN}/clang --target=aarch64-linux-gnu -fuse-ld=lld"

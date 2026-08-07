@@ -103,7 +103,7 @@ S = "${UNPACKDIR}/src"
 # vermagic/CRC/ABI). Use its shared build artifacts.  Host tools the kernel's
 # modules_prepare/prepare0 needs (meta-oe linux.inc built these for the kernel;
 # this recipe needs them too).
-DEPENDS += "virtual/kernel clang-native"
+DEPENDS += "virtual/kernel clang-native lld-native"
 DEPENDS += "bc-native bison-native flex-native openssl-native kmod-native rsync-native coreutils-native"
 do_configure[depends] += "virtual/kernel:do_shared_workdir"
 
